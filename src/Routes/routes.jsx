@@ -1,7 +1,11 @@
 import {
     createBrowserRouter,
-    RouterProvider,
+  
   } from "react-router-dom";
+import ErrorPage from "../pages/ErrorPages/ErrorPage";
+import Main from './../layout/Main';
+import Login from './../pages/Login';
+import Register from './../pages/Register';
 
 
 
@@ -9,6 +13,26 @@ import {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <div>Hello world!</div>,
+      element:<Main></Main>,
+      errorElement:<ErrorPage></ErrorPage>,
+      children:[
+{
+// path: "/",
+    // element: <Home></Home>,
+},
+{
+    path:"/login",
+    element: <Login></Login>,
+
+},
+{
+    path:"/register",
+    
+    element: <Register></Register>
+}
+
+      ]
     },
   ]);
+
+  export default router
