@@ -13,4 +13,4 @@
 
 
  ## others
- - This app created using this Stack: Laravel (Backend) + React.js (Frontend) by @fahadhos
+ - This app created using this Stack: Laravel (Backend) + React.js (Frontend) by @fahadhos &copy; 2024
