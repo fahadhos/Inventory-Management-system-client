@@ -17,7 +17,7 @@ const {loading ,user, logOut}= useContext(AuthContext)
 console.log(user);
     const navlinks = <>
       <li >
-        <NavLink to=''>
+        <NavLink to='/dashboard'>
         <span className='flex gap-1 justify-center items-center text-center'> 
         <AiFillHome ></AiFillHome>Dashboard
         </span>
@@ -56,7 +56,7 @@ const closemenu = () => {
     <section className='flex '> 
  
  {/*sidebar  */}
- <div className="drawer-content  relative z-10 ">
+ <div className="drawer-content   relative z-10 ">
     {/* Page content here
    
     */}
@@ -153,9 +153,9 @@ bg-gradient-to-r from-sky-400 via-sky-400 to-blue-500
 {/* profile name here */}
 
 {
-    user ? <p>
-        <details className=" justify-start text-left relative items-start  dropdown">
-    <summary className="m-1 btn">Welcome, {user?.email}<AiOutlineDownCircle></AiOutlineDownCircle></summary>
+    user ? <>
+        <details className="   dropdown">
+    <summary className="m-1 btn"> {'Welcome, '+user?.email}<AiOutlineDownCircle></AiOutlineDownCircle></summary>
     <ul className="p-2 justify-start text-left relative items-start   menu dropdown-content z-[1]  backdrop-blur-sm bg-white/30  w-52">
       <p className='p-4 text-left -left-[10rem] relative mx-auto'><span className='text-blue-600'>{user?.displayName} </span>
       </p>
@@ -163,7 +163,7 @@ bg-gradient-to-r from-sky-400 via-sky-400 to-blue-500
       <GrPowerShutdown className='text-red-600'></GrPowerShutdown> </button>
       </li>
     </ul>
-  </details></p>: <>
+  </details></>: <>
   <Link to='/login'  
    className="btn rounded-2xl relative -left-10 text-white bg-[#101540]">
    <GrLogin/>
