@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {FcMenu} from 'react-icons/fc';
 import icon from '/icon.png';
-import { AiFillHome } from "react-icons/ai";
+import { GrPowerShutdown,GrLogin } from "react-icons/gr";
+import { AiFillHome, AiOutlineDownCircle } from "react-icons/ai";
 import { FaBoxOpen } from "react-icons/fa";
 import { LiaClipboardListSolid } from "react-icons/lia";
 import './NavStyle.css';
 import { AiOutlineCloseSquare ,AiOutlineMenu} from "react-icons/ai";
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../Providers/AuthProvider';
 const NavBar = () => {
 
 
+const {loading ,user, logOut}= useContext(AuthContext)
 
+console.log(user);
     const navlinks = <>
       <li >
         <NavLink to=''>
@@ -139,11 +143,34 @@ bg-gradient-to-r from-sky-400 via-sky-400 to-blue-500
 {/* profile image */}
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
-          <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+            {
+                user ?
+                <img alt="Tailwind CSS Navbar component" src={user?.photoURL} />:<>
+                </>
+            }
         </div>
       </div>
 {/* profile name here */}
 
+{
+    user ? <p>
+        <details className=" justify-start text-left relative items-start  dropdown">
+    <summary className="m-1 btn">Welcome, {user?.email}<AiOutlineDownCircle></AiOutlineDownCircle></summary>
+    <ul className="p-2 justify-start text-left relative items-start   menu dropdown-content z-[1]  backdrop-blur-sm bg-white/30  w-52">
+      <p className='p-4 text-left -left-[10rem] relative mx-auto'><span className='text-blue-600'>{user?.displayName} </span>
+      </p>
+      <li className='border-none text-left items-start justify-start'><button onClick={logOut} className='backdrop-blur-sm relative left-5 pt-5 bg-white/30 border-none hover:bg-sky-200'> Log Out 
+      <GrPowerShutdown className='text-red-600'></GrPowerShutdown> </button>
+      </li>
+    </ul>
+  </details></p>: <>
+  <Link to='/login'  
+   className="btn rounded-2xl relative -left-10 text-white bg-[#101540]">
+   <GrLogin/>
+    Login</Link>
+
+    </>
+}
         </div>
 
        </>
