@@ -1,0 +1,55 @@
+
+
+
+.menu .active  { 
+   width: 10px;
+  height: 32px;
+ position: relative;
+ 
+ left: -43px;  
+    border-right: 4px solid white !important;
+ color: whitesmoke !important;
+}
+.menu img{
+    position: relative;
+    top: 3rem;
+}
+/* #nav a:hover {
+text-decoration: underline;
+color: aliceblue;
+ 
+} */
+.menu li{
+    /* position: relative; */
+    padding-bottom: 23px;
+}
+
+.menu span  {
+    
+position: fixed;
+left: 44px ; 
+padding: 1px;
+/* font-size: large; */
+
+}
+
+#nav :after {
+  content: '';
+  width: 0px;
+  height: 2px;
+  
+  display: block;
+  background: gold;
+  transition: 300ms;
+}
+
+#nav :hover:after {
+  width: 100%;
+}
+#nav  a {
+font-weight: 800;
+/* color: gold; */
+border: none ;
+
+/* background-color: transparent; */
+}
