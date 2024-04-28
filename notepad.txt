@@ -1,0 +1,47 @@
+ <div className="drawer-content  relative   ">
+    {/* Page content here    */}
+    
+    <label htmlFor="my-drawer" 
+    className="    drawer-button">
+    {
+        menu &&
+        <>
+         <AiOutlineMenu onClick={()=>openmenu(setMenu(!true))} 
+          className={ menu && `text-2xl relative left-10 mt-5 lg:hidden` || `text-2xl hidden`}></AiOutlineMenu>
+ 
+        </> ||
+        <>
+        <div className={ menu &&`drawer-side  hidden  ` &&  `drawer-side   ` }>
+
+<label htmlFor="my-drawer" aria-label="close sidebar"
+ className="  "></label>
+<ul className="menu relative  h-[100vh] p-4 
+w-[14rem]   
+ text-white 
+bg-gradient-to-r from-sky-400 via-sky-400 to-blue-500
+">
+
+  {/* Sidebar content here */}
+ 
+
+  <img className='relative   border-b-8  ' src={icon} alt="" />
+ 
+<AiOutlineCloseSquare onClick={()=>openmenu(setMenu(false))}   
+         className={ ` border-b-4 -top-5 text-red-200 relative left-[11rem] 
+          text-3xl  `  }>
+         </AiOutlineCloseSquare>
+  {/* auto navlinks will appear  */}
+  <p className='relative mt-10 text-2xl '>
+
+{navlinks}
+  </p>
+  
+  
+</ul>
+</div>
+       
+        </>
+    }    
+    
+    </label>
+  </div> 

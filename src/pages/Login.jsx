@@ -9,6 +9,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AuthContext } from './../Providers/AuthProvider';
 import toast from 'react-hot-toast';
+import axios from 'axios';
+import Constants from '../Constants';
 
 
 const Login = () => {
@@ -31,8 +33,9 @@ const handleLogin = e =>{
 
 e.preventDefault();
 const email = e.target.email.value
-const password = e.target.password.value
-    console.log(email,password);
+const password = e.target.password.value 
+    console.log(email,password,'ager gula');
+    axios.post(`${Constants.BASE_URL}/login`,email,password).then(res=>{console.log(res.data);})
  signIn(email,password).then(result=>{
     console.log(result?.user);
     
